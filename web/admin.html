@@ -1,50 +1,46 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8">
   <title>DS Admin Panel</title>
-  <link rel="stylesheet" href="./styles.css"/>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-<div class="app">
-  <aside class="sidebar">
-    <div class="brand">DS Admin Panel</div>
-    <div class="menuTitle">MENU</div>
-    <nav class="nav" id="nav"></nav>
-    <div class="menuTitle">MORE</div>
-    <nav class="nav" id="navMore"></nav>
-  </aside>
 
-  <div class="main">
-    <div class="topbar">
-      <div class="breadcrumb" id="crumb">Home</div>
-      <div class="row">
-        <button class="btn secondary" id="btnConfig">API Settings</button>
-        <button class="btn secondary" id="btnLogout">Logout</button>
-      </div>
-    </div>
-    <div class="content" id="view"></div>
+<div class="topbar">
+  <h2>DS Admin Panel</h2>
+  <div>
+    <button id="btnConfig">API Settings</button>
+    <button id="btnLogout">Logout</button>
   </div>
 </div>
 
-<div class="modal" id="modal">
-  <div class="box">
-    <div class="row" style="justify-content:space-between;align-items:center">
-      <h3 style="margin:0">Admin Settings</h3>
-      <button class="btn secondary" id="modalClose">Close</button>
-    </div>
-    <p class="muted">Paste Apps Script Web App URL and Admin Token. Saved in browser.</p>
-    <label class="muted">API URL</label>
-    <input class="input" id="apiUrl" placeholder="https://script.google.com/macros/s/XXXX/exec"/>
-    <div style="height:10px"></div>
-    <label class="muted">Admin Token</label>
-    <input class="input" id="adminToken" placeholder="DSADMIN12345"/>
-    <div style="height:10px"></div>
-    <button class="btn" id="saveCfg">Save</button>
+<div class="layout">
+  <div class="sidebar">
+    <h3>MENU</h3>
+    <div id="nav"></div>
+  </div>
+
+  <div class="content">
+    <h3 id="crumb">Home</h3>
+    <div id="view"></div>
+  </div>
+</div>
+
+<!-- API Modal -->
+<div id="modal" class="modal">
+  <div class="modal-box">
+    <h3>API Configuration</h3>
+
+    <input id="apiUrl" placeholder="Apps Script Web App URL (/exec)" />
+    <input id="adminToken" placeholder="Admin Token" type="password" />
+
+    <button id="saveCfg">Save</button>
+    <button id="closeModal">Close</button>
   </div>
 </div>
 
 <script type="module" src="./admin.js"></script>
+
 </body>
 </html>
